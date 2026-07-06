@@ -9,7 +9,7 @@ pipeline {
     environment {
         PYTHONUNBUFFERED = '1'
         // job name of the scraper pipeline to trigger
-        JENKINS_JOB_NAME = 'trend-scraper'
+        JENKINS_JOB_NAME = 'scraper/job/trend-scraper'
     }
 
     stages {
