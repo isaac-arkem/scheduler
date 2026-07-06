@@ -85,12 +85,9 @@ def process_dance_schedules(db, jenkins_base, auth_header, job_name):
                 "min_views": row.get("min_views") or 20000,
                 "recency_days": row.get("recency_days") or 14,
             })
-            .select("id")
-            .single()
             .execute()
-            .data
         )
-        request_id = req["id"]
+        request_id = req.data[0]["id"]
 
         # resolve feed slugs + tags from dance_feeds
         feed_ids = row.get("feed_ids") or []
@@ -160,12 +157,9 @@ def process_reference_schedules(db, jenkins_base, auth_header, job_name):
                 "schedule_id": schedule_id,
                 "handles": handles or None,
             })
-            .select("id")
-            .single()
             .execute()
-            .data
         )
-        request_id = req["id"]
+        request_id = req.data[0]["id"]
 
         params = {
             "SCRAPER_TYPE": "reference_profiles",
