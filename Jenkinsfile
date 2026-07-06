@@ -29,9 +29,9 @@ pipeline {
                 withCredentials([
                     string(credentialsId: 'supabase-url',        variable: 'SUPABASE_URL'),
                     string(credentialsId: 'supabase-secret-key', variable: 'SUPABASE_SECRET_KEY'),
-                    string(credentialsId: 'jenkins-url',         variable: 'JENKINS_URL'),
-                    string(credentialsId: 'jenkins-user',        variable: 'JENKINS_USER'),
-                    string(credentialsId: 'jenkins-api-token',   variable: 'JENKINS_API_TOKEN'),
+                    string(credentialsId: 'jenkins_url',         variable: 'JENKINS_URL'),
+                    string(credentialsId: 'jenkins_user',        variable: 'JENKINS_USER'),
+                    string(credentialsId: 'jenkins_api_token',   variable: 'JENKINS_API_TOKEN'),
                 ]) {
                     sh '.venv/bin/python scheduler.py'
                 }
