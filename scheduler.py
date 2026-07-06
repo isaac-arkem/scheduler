@@ -18,7 +18,13 @@ import logging
 from datetime import datetime, timezone
 
 from croniter import croniter
-from src.db.client import get_db
+from supabase import create_client
+
+
+def get_db():
+    from dotenv import load_dotenv
+    load_dotenv()
+    return create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SECRET_KEY"])
 
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger(__name__)
