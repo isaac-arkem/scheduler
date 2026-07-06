@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     triggers {
-        // runs every minute
-        cron('* * * * *')
+        // runs every 5 minutes
+        cron('*/5 * * * *')
     }
 
     environment {
